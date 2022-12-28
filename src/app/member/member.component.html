@@ -1,0 +1,6 @@
+<p>member works!</p>
+<ul *ngIf="members$ | async as members">
+    <li *ngFor="let member of members">
+      {{ member.Notes }}
+    </li>
+</ul>
