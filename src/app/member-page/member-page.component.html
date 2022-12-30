@@ -1,1 +1,7 @@
-<p>member-page works!</p>
+<div class="text-center">
+    <img [src]="member.PhotoURL=='' ? avatar: member.PhotoURL">
+    <p>{{member.ParliamentaryName}}</p>
+    <div *ngFor="let party of parties">
+        <p>{{party.Party.ActualName}}</p>
+    </div>
+</div>

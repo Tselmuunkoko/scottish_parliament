@@ -1,6 +1,16 @@
-<p>member works!</p>
-<ul *ngIf="members$ | async as members">
-    <li *ngFor="let member of members">
-      {{ member.Notes }}
-    </li>
-</ul>
+<div class="members-container">
+  <div *ngIf="members$ | async as members" class="members">
+      <div [routerLink]="['/member', member.PersonID]"
+        class="text-center member-card"
+        *ngFor="let member of members | 
+        paginate: { itemsPerPage: 12, currentPage: page }">
+        <div class="member-img"
+          [style.background-image]="member.PhotoURL==''?'url('+avatar+')': 'url('+member.PhotoURL+')'">
+        </div>
+        <p>{{member.ParliamentaryName}}</p>
+      </div>
+  </div>
+  <div class="text-center">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
+</div>

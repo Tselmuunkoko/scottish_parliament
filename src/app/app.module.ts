@@ -12,8 +12,8 @@ import { MemberComponent } from './member/member.component';
 import { appRoutes } from "./app.routes";
 import { RouterModule } from "@angular/router";
 import { MemberPageComponent } from './member-page/member-page.component';
-import { MemberCardComponent } from './member-card/member-card.component';
-
+import { MemberApiService } from './services/member-api.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 // @NgModule decorator with its metadata
 @NgModule({
   declarations: [
@@ -21,15 +21,15 @@ import { MemberCardComponent } from './member-card/member-card.component';
     ItemDirective,
     MemberComponent,
     MemberPageComponent,
-    MemberCardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgxPaginationModule
   ],
-  providers: [],
+  providers: [MemberApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
-
-
+.header {
+    padding: 1em 2em;
+    text-align: center;
+}
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that

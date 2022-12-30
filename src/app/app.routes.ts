@@ -1,12 +1,11 @@
 import { Routes } from "@angular/router";
-
-import { AppComponent } from "./app.component";
 import { MemberComponent } from "./member/member.component";
-import { ErrorComponent } from "./error.component";
+import { ErrorComponent } from "./error/error.component";
+import { MemberPageComponent } from "./member-page/member-page.component";
 
 export const appRoutes: Routes = [
-  { path: "home", component: AppComponent },
-  { path: "member", component: MemberComponent },
-  { path: "", redirectTo: "home", pathMatch: "full" },
+  { path: "member", component: MemberComponent},
+  { path: "member/:id", component: MemberPageComponent},
+  { path: "", redirectTo: "member", pathMatch: "full" },
   { path: "**", component: ErrorComponent }
 ];
