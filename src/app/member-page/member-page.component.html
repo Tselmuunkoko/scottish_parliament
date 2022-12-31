@@ -1,7 +1,31 @@
-<div class="text-center">
-    <img [src]="member.PhotoURL=='' ? avatar: member.PhotoURL">
-    <p>{{member.ParliamentaryName}}</p>
-    <div *ngFor="let party of parties">
-        <p>{{party.Party.ActualName}}</p>
+<div class="text-center flex justify-center">
+    <div class="container">
+        <h2>Member {{personId}}</h2>
+        <img [src]="member.PhotoURL=='' ? avatar: member.PhotoURL">
+        <div class="info text-left">
+            <h1 class="title">{{member.ParliamentaryName}}</h1>
+            <span>{{member.BirthDate | date}}</span>
+        </div>
+        <br>
+        <div class="text-left">
+            <h1 class="title">Parties</h1>
+            <ul *ngFor="let party of parties">
+                <li>
+                    <p *ngIf="party.Party">
+                        {{party.Party.ActualName}} |
+                        <span>from {{party.ValidFromDate | date: 'MMMM, YYYY'}} to 
+                            {{party.ValidUntilDate | date: 'MMMM, YYYY'}}
+                        </span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <br>
+        <div class="text-left">
+            <h1 class="title">Websites</h1>
+            <ul *ngFor="let website of websites" class="flex">
+                <li><a [href]="website.WebURL">{{website.WebURL}}</a></li>
+            </ul>
+        </div>
     </div>
 </div>

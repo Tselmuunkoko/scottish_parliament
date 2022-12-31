@@ -1,6 +1,13 @@
 .header {
-    padding: 1em 2em;
+    padding: 1em 1em;
     text-align: center;
+    border-bottom: 1px solid beige;
+}
+.header > h1 {
+    cursor: pointer;
+}
+.body {
+    padding: 1em;
 }
 /*
 Copyright Google LLC. All Rights Reserved.

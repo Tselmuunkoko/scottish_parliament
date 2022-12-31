@@ -69,6 +69,15 @@ nav a.active {
 .text-center {
   text-align: center;
 }
+.text-left {
+  text-align: left;
+}
+.flex {
+  display: flex;
+}
+.justify-center {
+  justify-content: center;
+}
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that

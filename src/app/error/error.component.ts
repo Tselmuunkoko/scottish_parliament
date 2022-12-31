@@ -1,9 +1,7 @@
 import {Component} from '@angular/core';
  
 @Component({
-    template: `<h1>Page not found</h1>
-               <p>This is a Error Page</p>
-              `
+    template: `<h2>Page not found</h2>`
 })
  
 export class ErrorComponent {

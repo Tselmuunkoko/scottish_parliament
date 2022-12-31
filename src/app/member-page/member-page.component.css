@@ -1,4 +1,28 @@
+.container {
+    width: 400px;
+}
 img {
     width: 400px;
-    height: auto;
+    height: 250px;
+    object-fit: cover;
+    margin-top: 1em;
+    border-radius: 3px;
+}
+.info {
+    margin-top: 1em;
+}
+.title{
+    font-size: large;
+    color: black;
+}
+ul {
+    padding-left: 2em;
+}
+span {
+    font-size: smaller;
+    color:dimgray;
+}
+li a {
+    word-break: break-word;
+    width: 400px;
 }

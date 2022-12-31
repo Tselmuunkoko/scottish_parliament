@@ -4,6 +4,7 @@ import { MemberApiService } from '../services/member-api.service';
 import { ActivatedRoute } from '@angular/router';
 import { Party } from '../models/party.model';
 import { MemberParty } from '../models/memberparty.model';
+import { Website } from '../models/website.model';
 
 @Component({
   selector: 'app-member-page',
@@ -12,12 +13,14 @@ import { MemberParty } from '../models/memberparty.model';
 })
 export class MemberPageComponent implements OnInit{
   avatar='../../assets/avatar.webp';
-  member : any;
-  personId: any;
+  member : any = {};
+  personId: any = {};
   parties: MemberParty [] = [];
+  websites: Website [] = [];
   members$ = this.memberApiService.members$;
   memberParties$ = this.memberApiService.memberParties$;
   parties$ = this.memberApiService.parties$;
+  websites$ = this.memberApiService.websites$;
   constructor(private memberApiService: MemberApiService,  private route: ActivatedRoute,) { 
   }
 
@@ -32,7 +35,7 @@ export class MemberPageComponent implements OnInit{
           return;
         }
       });
-    })
+    });
     this.memberParties$.subscribe(data => {
       data.filter((e) => {
         if(e.PersonID == this.personId) {
@@ -43,9 +46,16 @@ export class MemberPageComponent implements OnInit{
             }
           )
           this.parties.push(party);
-          return;
         }
       })
-    })
+    });
+    this.websites$.subscribe(data => {
+      data.filter((e) => {
+        if(e.PersonID == this.personId) {
+          this.websites.push(e);
+        }
+      })
+    }
+    )
   }
 }

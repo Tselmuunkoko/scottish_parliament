@@ -17,7 +17,22 @@ export class MemberApiService {
       resetOnComplete: () => NEVER,
     })
   );
-  public memberParties$ = this.http.get<any[]>(this.baseUri+'memberparties').pipe();
+  public memberParties$ = this.http.get<any[]>(this.baseUri+'memberparties').pipe(
+    tap(() => console.log('request happened')),
+    map((members) => members.map((m) => m)),
+    share({
+      connector: () => new ReplaySubject(1),
+      resetOnComplete: () => NEVER,
+    })
+  );
   public parties$ = (PartyID: number) => this.http.get<Party>(this.baseUri+'parties/'+PartyID).pipe();
+  public websites$ = this.http.get<any[]>(this.baseUri+'websites').pipe(
+    tap(() => console.log('request happened')),
+    map((members) => members.map((m) => m)),
+    share({
+      connector: () => new ReplaySubject(1),
+      resetOnComplete: () => NEVER,
+    })
+  );
   constructor(private http: HttpClient) {}
 }
