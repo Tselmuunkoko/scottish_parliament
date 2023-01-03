@@ -8,7 +8,8 @@ import { MemberApiService } from '../services/member-api.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MemberComponent {
-  avatar='../../assets/avatar.webp';
+  url = document.getElementsByTagName('base')[0].getAttribute('href');
+  avatar = '../..'+ this.url +'assets/avatar.webp';
   members$ = this.memberApiService.members$;
   constructor(private memberApiService: MemberApiService) { }
   page: number = 1;

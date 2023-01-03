@@ -12,7 +12,8 @@ import { Website } from '../models/website.model';
   styleUrls: ['./member-page.component.css']
 })
 export class MemberPageComponent implements OnInit{
-  avatar='../../assets/avatar.webp';
+  url = document.getElementsByTagName('base')[0].getAttribute('href');
+  avatar = '../..'+ this.url +'assets/avatar.webp';
   member : any = {};
   personId: any = {};
   parties: MemberParty [] = [];
